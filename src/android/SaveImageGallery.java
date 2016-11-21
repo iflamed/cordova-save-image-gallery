@@ -2,7 +2,6 @@ package com.agomezmoron.saveImageGallery;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.util.Calendar;
 import java.util.Arrays;
 import java.util.List;
 
@@ -145,9 +144,6 @@ public class SaveImageGallery extends CordovaPlugin {
 
         try {
             String deviceVersion = Build.VERSION.RELEASE;
-            Calendar c = Calendar.getInstance();
-            String date = EMPTY_STR + c.get(Calendar.YEAR) + c.get(Calendar.MONTH) + c.get(Calendar.DAY_OF_MONTH)
-                    + c.get(Calendar.HOUR_OF_DAY) + c.get(Calendar.MINUTE) + c.get(Calendar.SECOND);
 
             int check = deviceVersion.compareTo("2.3.3");
 
@@ -170,7 +166,7 @@ public class SaveImageGallery extends CordovaPlugin {
             }
 
             // building the filename
-            String fileName = prefix + date;
+            String fileName = prefix;
             Bitmap.CompressFormat compressFormat = null;
             // switch for String is not valid for java < 1.6, so we avoid it
             if (format.equalsIgnoreCase(JPG_FORMAT)) {
